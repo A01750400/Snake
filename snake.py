@@ -48,6 +48,15 @@ def move():
         food.y = randrange(-15, 15) * 10
     else:
         snake.pop(0)
+        xfood=food.x
+        yfood=food.y
+        if -200 < food.x < 190 and -200 < food.y < 190:
+            food.x = randrange(xfood-10, xfood+10)
+            food.y = randrange(yfood-10, yfood+10)
+
+        else:
+            food.x=0
+            food.y=0
 
     clear()
 
@@ -61,6 +70,8 @@ def move():
 setup(420, 420, 370, 0)
 colorSnake = change_color()
 colorFood = change_color()
+food.x=0
+food.y=0
 hideturtle()
 tracer(False)
 listen()
